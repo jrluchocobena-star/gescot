@@ -1,0 +1,30 @@
+.LOGTABLE DBI_COT.JRR_Contactabilidad_COT_log;  
+.LOGON 10.226.0.34/Ic_lsaldarriagaa,luchin201307;  
+   DATABASE tduser;  
+   .BEGIN EXPORT SESSIONS 2;  
+      .EXPORT OUTFILE D:\\COMPARTIDO\DATA\CONTACTOS\BASE_CONTACTOS.txt  
+      MODE RECORD FORMAT TEXT;
+       SELECT CAST(peticion AS CHAR(12)), 
+	  '|'     (CHAR(1)),
+      CAST(TIPO_DE_DOCUMENTO AS CHAR(10)),
+      '|'     (CHAR(1)), 	  
+      CAST(NRO_DOCUMENTO AS CHAR(20)),
+      '|'     (CHAR(1)),		 
+   CAST(TELEFONO AS CHAR(20)),
+	  '|'     (CHAR(1)),	 
+	CAST(APE_PATERNO AS CHAR(100)),
+      '|'     (CHAR(1)),		 
+    CAST(APE_MATERNO AS CHAR(100)), 
+	  '|'     (CHAR(1)),	 
+    CAST(OREPLACE(NOMBRES,'''',' ') AS CHAR(50)), 
+	  '|'     (CHAR(1)), 	 
+    CAST(OREPLACE(NOMBRE_COMPLETO,'''',' ') AS CHAR(250)),
+	  '|'     (CHAR(1)),	 
+	CAST(OPERADOR AS CHAR(20))
+
+      FROM dbi_public.JRR_Contactabilidad_COT ;
+   .END EXPORT;
+.LOGOFF;
+
+
+

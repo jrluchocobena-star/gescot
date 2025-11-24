@@ -1,0 +1,27 @@
+.logon 10.226.0.34/ic_ccespedes,lzm142chj
+
+.SET RECORDMODE OFF;
+.SET FORMAT OFF;
+
+.SET TITLEDASHES OFF;
+.SET SEPARATOR "|";
+
+.SET WIDTH 65531;.EXPORT REPORT FILE= "U:\DATA\CONTACTOS\BASE_CONTACTOS_27062019.txt"
+
+SEL TRIM(peticion) AS peticion,
+TRIM(Tipo_de_documento) AS Tipo_doc,
+TRIM(Nro_Documento) AS Documento,
+TRIM(Telefono) AS Telefono,
+TRIM(ape_paterno) AS APE_PATERNO,
+TRIM(ape_materno) AS APE_MATERNO,
+TRIM(nombres) AS NOMBRES_COMPLETOS,
+TRIM(nombre_completo) AS NOMBRE_COMPLETO,
+TRIM(operador) AS OPERADOR,
+'' AS OBSERVACION,
+'' AS fecha_carga
+from dbi_public.JRR_Contactabilidad_Cot;
+
+
+.EXPORT RESET
+.LOGOFF
+.EXIT

@@ -1,0 +1,4 @@
+D:
+cd D:\BAT
+FEXP < EXP_TDATA.TXT
+

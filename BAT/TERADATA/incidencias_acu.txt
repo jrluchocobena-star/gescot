@@ -1,0 +1,99 @@
+.logon 10.226.0.34/Ic_lcobena ,tERADATA#2020;
+DROP TABLE DBI_COT.lc_incidencias_cotacu;
+DROP TABLE DBI_COT.KA_ERROR_1;
+DROP TABLE DBI_COT.KA_ERROR_2;
+CREATE MULTISET TABLE DBI_COT.lc_incidencias_cotacu
+(
+CIP INT(11),
+COD_HORARIO VARCHAR(20),
+HORARIO CHAR(10),
+H_INGRESO CHAR(200),
+H_SALIDA VARCHAR(50),
+FEC_REG VARCHAR(50),
+USU_REG DATETIME,
+TP_INCIDENCIA CHAR(10),
+MOTIVO_INCIDENCIA VARCHAR(50),
+FEC_INI_INC VARCHAR(200),
+FEC_FIN_INC DATETIME,
+NRO_PARTICIPANTES DATETIME,
+COD_INCIDENCIA VARCHAR(300),
+EJECUTO INT(11),
+TIEMPO VARCHAR(50),
+MODO VARCHAR(1),
+C_DOID TIME,
+DNI VARCHAR(10),
+DIAS VARCHAR(50),
+XMES VARCHAR(30),
+AREA INT(11),
+ESTADO VARCHAR(7),
+SUPERVISOR VARCHAR(100),
+NOMBRES VARCHAR(50),
+FEC_CARGA VARCHAR(300),
+OBS_INCIDENCIA VARCHAR(350)
+)PRIMARY INDEX(CIP);
+BEGIN LOADING DBI_COT. lc_incidencias_cotacu
+ERRORFILES DBI_COT.KA_ERROR_1,DBI_COT.KA_ERROR_2;
+SET RECORD VARTEXT "|";
+RECORD 2;
+CHECKPOINT 10;
+DEFINE
+Columna_1 (INT(11)),
+Columna_2 (VARCHAR(20)),
+Columna_3 (CHAR(10)),
+Columna_4 (CHAR(200)),
+Columna_5 (VARCHAR(50)),
+Columna_6 (VARCHAR(50)),
+Columna_7 (DATETIME),
+Columna_8 (CHAR(10)),
+Columna_9 (VARCHAR(50)),
+Columna_10 (VARCHAR(200)),
+Columna_11 (DATETIME),
+Columna_12 (DATETIME),
+Columna_13 (VARCHAR(300)),
+Columna_14 (INT(11)),
+Columna_15 (VARCHAR(50)),
+Columna_16 (VARCHAR(1)),
+Columna_17 (TIME),
+Columna_18 (VARCHAR(10)),
+Columna_19 (VARCHAR(50)),
+Columna_20 (VARCHAR(30)),
+Columna_21 (INT(11)),
+Columna_22 (VARCHAR(7)),
+Columna_23 (VARCHAR(100)),
+Columna_24 (VARCHAR(50)),
+Columna_25 (VARCHAR(300)),
+Columna_26 (VARCHAR(350))
+FILE =D:\COMPARTIDO\DATA\INCIDENCIAS\Reporte_Incidencias_cot_2020-09.csv;
+INSERT INTO DBI_COT. lc_incidencias_cotacu
+VALUES 
+(
+:Columna_1,
+:Columna_2,
+:Columna_3,
+:Columna_4,
+:Columna_5,
+:Columna_6,
+:Columna_7,
+:Columna_8,
+:Columna_9,
+:Columna_10,
+:Columna_11,
+:Columna_12,
+:Columna_13,
+:Columna_14,
+:Columna_15,
+:Columna_16,
+:Columna_17,
+:Columna_18,
+:Columna_19,
+:Columna_20,
+:Columna_21,
+:Columna_22,
+:Columna_23,
+:Columna_24,
+:Columna_25,
+:Columna_26
+);
+END LOADING;
+LOGOFF;
+

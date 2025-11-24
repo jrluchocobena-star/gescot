@@ -1,0 +1,32 @@
+     ========================================================================
+     =                                                                      =
+     =          FastExport Utility    Release FEXP.16.20.00.01              =
+     =          Platform WIN32                                              =
+     =          PID      29672                                              =
+     =                                                                      =
+     ========================================================================
+     =                                                                      =
+     =     Copyright 1990-2018 Teradata Corporation. ALL RIGHTS RESERVED.   =
+     =                                                                      =
+     ========================================================================
+**** 07:00:01 UTY2411 Processing start date: WED SEP 02, 2020
+     ========================================================================
+     =                                                                      =
+     =          Logon/Connection                                            =
+     =                                                                      =
+     ========================================================================
+0001 .logon 10.226.0.34/Ic_lcobena ,;
+**** 07:00:01 UTY6214 Reminder: A .Logtable statement must be entered for a
+     successful logon.
+     ========================================================================
+     =                                                                      =
+     =          Processing Control Statements                               =
+     =                                                                      =
+     ========================================================================
+0002 DROP TABLE DBI_COT. CC_COT_INCIDENCIAS_TMP;
+**** 07:00:01 UTY2403 An invalid statement was found before the .LOGTABLE
+     statement.
+**** 07:00:01 UTY2410 Total processor time used = '0.0625 Seconds'
+     .       Start : 07:00:01 - WED SEP 02, 2020
+     .       End   : 07:00:01 - WED SEP 02, 2020
+     .       Highest return code encountered = '8'.

@@ -1,0 +1,40 @@
+.LOGTABLE dbi_aye.JRR_Contactabilidad_Cot_log;  
+.logon 10.226.0.34/ic_rbellatin,tdrb3114t1n;
+
+
+
+   DATABASE dbi_public;  
+   .BEGIN EXPORT SESSIONS 2;  
+   
+   
+      .EXPORT OUTFILE "U:\DATA\CONTACTOS\BASE_CONTACTOS.txt" 
+      
+FORMAT TEXT
+MODE RECORD;
+
+   
+
+SELECT CAST(((TRIM((COALESCE(peticion,''))))
+||'|'||
+(TRIM((COALESCE(Tipo_de_documento,''))))
+||'|'||
+(TRIM((COALESCE(Nro_Documento,''))))
+||'|'||
+(TRIM((COALESCE(Telefono,''))))
+||'|'||
+(TRIM((COALESCE(ape_paterno,''))))
+||'|'||
+(TRIM((COALESCE(ape_materno,''))))
+||'|'||
+(TRIM((COALESCE(nombres,''))))
+||'|'||
+(TRIM((COALESCE((CAST(nombre_completo as varchar(150))),''))))
+||'|'||
+(TRIM((COALESCE(operador,''))))
+||'|-|-'
+) as char(400))
+
+from dbi_public.JRR_Contactabilidad_Cot;
+
+   .END EXPORT;
+.LOGOFF;
